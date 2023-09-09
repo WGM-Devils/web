@@ -35,5 +35,5 @@ const e401 = {
 
 module.exports = router;
 module.exports = {
-    e400, e401
+    e200, e201, e204, e400, e401
 }
