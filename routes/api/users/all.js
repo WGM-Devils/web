@@ -5,7 +5,7 @@ const env = require("dotenv").config();
 const fs = require("fs-extra");
 const { e200, e201, e204, e400, e401 } = require("../api");
 
-// Exports
+// Code
 
 router.get("/all", (req, res, next) => {
     if (req.headers["authorization"] !== "") {
@@ -19,4 +19,7 @@ router.get("/all", (req, res, next) => {
         res.status(400).json(e400);
     }
 })
+
+// Exports
+
 module.exports = router;
