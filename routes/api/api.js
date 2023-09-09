@@ -30,10 +30,15 @@ const e401 = {
     status: "Unauthorized",
     message: "Check the authorization header!"
 };
+const e404 = {
+    code: 404,
+    status: "Not found",
+    message: "The requested resource does not exist in our data!"
+}
 
 // Exports
 
 module.exports = router;
 module.exports = {
-    e200, e201, e204, e400, e401
+    e200, e201, e204, e400, e401, e404
 }
