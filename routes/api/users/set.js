@@ -34,7 +34,18 @@ router.post("/new", (req, res, next) => {
       }
       let user = req.body;
       user.createdAt = new Date().toLocaleString("de-DE", { timeZone: "UTC" });
-      user.friends = [];
+      user.posts = {
+        counter: 0,
+        ids: [],
+      };
+      user.comments = {
+        counter: 0,
+        ids: [],
+      };
+      user.likes = {
+        counter: 0,
+        ids: 0,
+      };
       user.lastUpdated = new Date().toLocaleString("de-DE", {
         timeZone: "UTC",
       });
