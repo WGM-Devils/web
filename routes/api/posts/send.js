@@ -7,7 +7,7 @@ const { e200, e201, e204, e400, e401 } = require("../api");
 
 // Code
 
-router.get("/send", (req, res, next) => {
+router.post("/send", (req, res, next) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let all = fs.readJsonSync("../../../data/users.json");
