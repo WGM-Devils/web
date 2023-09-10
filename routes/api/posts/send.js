@@ -39,6 +39,10 @@ router.post("/send", (req, res, next) => {
         message.lastUpdated = new Date().toLocaleString("de-DE", {
           timeZone: "UTC",
         });
+        message.views = {
+          counter: 0,
+          users: [],
+        };
         posts[id] = message;
         fs.writeJsonSync("../../../data/messages.json", posts);
         res.status(200).json(message);
