@@ -17,7 +17,7 @@ router.post("/liked?user=:id/post=:post", (req, res, next) => {
           (posts[req.params.post].likes.counter =
             parseInt(posts[req.params.post].likes.counter) + 1),
             posts[req.params.post].likes.users.push(req.params.id);
-          fs.writeJsonSync("../../../data/messages.json", posts, { spaces: 4 });
+          fs.writeJsonSync("../../../data/posts.json", posts, { spaces: 4 });
           res.status(204).json(e204);
         } else {
           res.status(500);

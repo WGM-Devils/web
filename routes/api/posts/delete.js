@@ -25,7 +25,7 @@ router.delete("/delete?post=:id", (req, res, next) => {
           });
         }
         delete posts[req.params.id];
-        fs.writeJsonSync("../../../data/messages.json", posts, { spaces: 4 });
+        fs.writeJsonSync("../../../data/posts.json", posts, { spaces: 4 });
         res.status(204).json(e204);
       } else {
         res.status(404).json(e404);

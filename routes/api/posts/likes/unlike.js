@@ -19,7 +19,7 @@ router.delete("/unliked?user=:id/post=:post", (req, res, next) => {
             posts[req.params.post].likes.users.splice(
               posts[req.params.post].likes.users.indexOf(req.params.id)
             );
-          fs.writeJsonSync("../../../data/messages.json", posts, { spaces: 4 });
+          fs.writeJsonSync("../../../data/posts.json", posts, { spaces: 4 });
           res.status(204).json(e204);
         } else {
           res.status(500);

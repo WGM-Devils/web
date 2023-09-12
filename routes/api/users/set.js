@@ -12,7 +12,7 @@ router.post("/new", (req, res, next) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let all = fs.readJsonSync("../../../data/users.json");
-      let posts = fs.readJsonSync("../../../data/messages.json");
+      let posts = fs.readJsonSync("../../../data/posts.json");
       let comments = fs.readJsonSync("../../../data/comments.json");
       let id = randomString({
         length: 30,

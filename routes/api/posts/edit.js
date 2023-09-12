@@ -17,7 +17,7 @@ router.patch("/edit?post=:id", (req, res, next) => {
           timeZone: "UTC",
         });
         posts[req.params.id] = message;
-        fs.writeJsonSync("../../../data/messages.json", posts, { spaces: 4 });
+        fs.writeJsonSync("../../../data/posts.json", posts, { spaces: 4 });
         res.status(200).json(message);
       } else {
         res.status(404).json(e404);
