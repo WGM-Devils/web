@@ -7,7 +7,7 @@ const { e204, e400, e401, e404 } = require("../../api");
 
 // Code
 
-router.post("/liked?user=:id/post=:post", (req, res) => {
+router.post("/add?user=:id/post=:post", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let users = fs.readJsonSync("../../../../data/users.json");
