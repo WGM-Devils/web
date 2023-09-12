@@ -47,6 +47,10 @@ router.post("/send", (req, res, next) => {
           counter: 0,
           users: [],
         };
+        message.comments = {
+          counter: 0,
+          ids: [],
+        };
         posts[id] = message;
         fs.writeJsonSync("../../../data/messages.json", posts);
         res.status(200).json(message);
