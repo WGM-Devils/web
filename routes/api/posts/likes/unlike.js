@@ -3,7 +3,7 @@
 const router = require("express").Router();
 const env = require("dotenv").config();
 const fs = require("fs-extra");
-const { e200, e201, e204, e400, e401, e404 } = require("../api");
+const { e200, e201, e204, e400, e401, e404 } = require("../../api");
 
 // Code
 
