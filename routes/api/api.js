@@ -38,17 +38,30 @@ const e404 = {
 
 // Code
 
-const ALL = require("./users/all");
-const DELETE = require("./users/delete");
-const SET = require("./users/set");
-const EDIT = require("./users/edit");
-const GET = require("./users/get");
+// Users
 
-router.use("/users", ALL);
-router.use("/users", DELETE);
-router.use("/users", SET);
-router.use("/users", EDIT);
-router.use("/users", GET);
+router.use("/users", require("./users/all"));
+router.use("/users", require("./users/delete"));
+router.use("/users", require("./users/set"));
+router.use("/users", require("./users/edit"));
+router.use("/users", require("./users/get"));
+
+// Posts
+
+router.use("/posts", require("./posts/all"));
+router.use("/posts", require("./posts/delete"));
+router.use("/posts", require("./posts/edit"));
+router.use("/posts", require("./posts/send"));
+router.use("/posts", require("./posts/get"));
+// Views
+router.use("/posts", require("./posts/viewed"));
+// Likes
+router.use("/posts/likes", require("./posts/likes/like"));
+router.use("/posts/likes", require("./posts/likes/unlike"));
+// Comments
+router.use("/posts/comments", require("./posts/comment/add"));
+router.use("/posts/comments", require("./posts/comment/delete"));
+router.use("/posts/comments", require("./posts/comment/edit"));
 
 // Exports
 
