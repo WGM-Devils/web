@@ -7,7 +7,7 @@ const { e400, e401 } = require("../api");
 
 // Code
 
-router.post("/viewed?user=:id/post=:post", (req, res) => {
+router.get("/all", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let posts = fs.readJsonSync("../../../data/posts.json");
