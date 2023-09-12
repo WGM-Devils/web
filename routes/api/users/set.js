@@ -3,12 +3,12 @@
 const router = require("express").Router();
 const env = require("dotenv").config();
 const fs = require("fs-extra");
-const { e200, e201, e204, e400, e401 } = require("../api");
+const { e400, e401 } = require("../api");
 const randomString = require("random-string");
 
 // Code
 
-router.post("/new", (req, res, next) => {
+router.post("/new", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let all = fs.readJsonSync("../../../data/users.json");

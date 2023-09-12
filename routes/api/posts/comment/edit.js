@@ -3,11 +3,11 @@
 const router = require("express").Router();
 const env = require("dotenv").config();
 const fs = require("fs-extra");
-const { e200, e201, e204, e400, e401, e404 } = require("../../api");
+const { e400, e401, e404 } = require("../../api");
 
 // Code
 
-router.patch("/edit?comment=:id", (req, res, next) => {
+router.patch("/edit?comment=:id", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let comments = fs.readJsonSync("../../../../data/comments.json");
