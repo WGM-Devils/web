@@ -63,6 +63,10 @@ router.use("/posts/comments", require("./posts/comment/add"));
 router.use("/posts/comments", require("./posts/comment/delete"));
 router.use("/posts/comments", require("./posts/comment/edit"));
 
+// Website routing
+
+router.use("/", require("../pages/home"));
+
 // 404
 
 router.use(function (req, res) {
