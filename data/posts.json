@@ -1,0 +1,13 @@
+{
+    "message0": {
+        "user": "0",
+        "title": "Test",
+        "description": "lorem ipsum",
+        "implementation": {
+            "type": "Image",
+            "content": ""
+        },
+        "createdAt": "09.09.2023",
+        "lastUpdated": "09.09.2023"
+    }
+}
