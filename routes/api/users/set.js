@@ -44,7 +44,7 @@ router.post("/new", (req, res) => {
       };
       user.likes = {
         counter: 0,
-        ids: 0,
+        ids: [],
       };
       user.lastUpdated = new Date().toLocaleString("de-DE", {
         timeZone: "UTC",
