@@ -90,7 +90,6 @@ router.use(function (req, res) {
 
 // Exports
 
-module.exports = router;
 module.exports = {
   e200,
   e201,
@@ -98,4 +97,5 @@ module.exports = {
   e400,
   e401,
   e404,
+  router,
 };

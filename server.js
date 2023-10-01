@@ -26,5 +26,5 @@ app.listen(8000, () => {
 
 // Code
 
-const API = require("./routes/api/api");
-app.use("/api/", API);
+const { router } = require("./routes/api/api");
+app.use("/api/", router);
