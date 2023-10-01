@@ -28,3 +28,6 @@ app.listen(8000, () => {
 
 const { router } = require("./routes/api/api");
 app.use("/api/", router);
+app.get("/", (req, res) => {
+  res.render("index");
+});
