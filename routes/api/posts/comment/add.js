@@ -10,9 +10,9 @@ const { e400, e401 } = require("../../api");
 router.post("/add", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let all = fs.readJsonSync("../../../../data/users.json");
-      let posts = fs.readJsonSync("../../../../data/posts.json");
-      let comments = fs.readJsonSync("../../../../data/comments.json");
+      let all = fs.readJsonSync("data/users.json");
+      let posts = fs.readJsonSync("data/posts.json");
+      let comments = fs.readJsonSync("data/comments.json");
       let id = randomString({
         length: 30,
         numeric: true,
@@ -40,7 +40,7 @@ router.post("/add", (req, res) => {
           timeZone: "UTC",
         });
         comments[id] = comment;
-        fs.writeJsonSync("../../../data/comments.json", comments);
+        fs.writeJsonSync("data/comments.json", comments);
         res.status(200).json(comment);
       } else {
         res.status(500);

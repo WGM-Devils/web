@@ -10,9 +10,9 @@ const { e400, e401 } = require("../api");
 router.post("/send", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let all = fs.readJsonSync("../../../data/users.json");
-      let posts = fs.readJsonSync("../../../data/posts.json");
-      let comments = fs.readJsonSync("../../../data/comments.json");
+      let all = fs.readJsonSync("data/users.json");
+      let posts = fs.readJsonSync("data/posts.json");
+      let comments = fs.readJsonSync("data/comments.json");
       let id = randomString({
         length: 30,
         numeric: true,
@@ -52,7 +52,7 @@ router.post("/send", (req, res) => {
           ids: [],
         };
         posts[id] = message;
-        fs.writeJsonSync("../../../data/posts.json", posts);
+        fs.writeJsonSync("data/posts.json", posts);
         res.status(200).json(message);
       } else {
         res.status(500);

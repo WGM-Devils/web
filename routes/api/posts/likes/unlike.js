@@ -10,8 +10,8 @@ const { e204, e400, e401, e404 } = require("../../api");
 router.delete("/delete?user=:id/post=:post", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let users = fs.readJsonSync("../../../../data/users.json");
-      let posts = fs.readJsonSync("../../../../data/posts.json");
+      let users = fs.readJsonSync("data/users.json");
+      let posts = fs.readJsonSync("data/posts.json");
       if (posts[req.params.post] != undefined) {
         if (users[req.params.id] != undefined) {
           (posts[req.params.post].likes.counter =
@@ -19,7 +19,7 @@ router.delete("/delete?user=:id/post=:post", (req, res) => {
             posts[req.params.post].likes.users.splice(
               posts[req.params.post].likes.users.indexOf(req.params.id)
             );
-          fs.writeJsonSync("../../../data/posts.json", posts, { spaces: 4 });
+          fs.writeJsonSync("data/posts.json", posts, { spaces: 4 });
           res.status(204).json(e204);
         } else {
           res.status(500);

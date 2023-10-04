@@ -11,9 +11,9 @@ const randomString = require("random-string");
 router.post("/new", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let all = fs.readJsonSync("../../../data/users.json");
-      let posts = fs.readJsonSync("../../../data/posts.json");
-      let comments = fs.readJsonSync("../../../data/comments.json");
+      let all = fs.readJsonSync("data/users.json");
+      let posts = fs.readJsonSync("data/posts.json");
+      let comments = fs.readJsonSync("data/comments.json");
       let id = randomString({
         length: 30,
         numeric: true,
@@ -50,7 +50,7 @@ router.post("/new", (req, res) => {
         timeZone: "UTC",
       });
       all[id] = user;
-      fs.writeJsonSync("../../../data/users.json", all, { spaces: 4 });
+      fs.writeJsonSync("data/users.json", all, { spaces: 4 });
       res.status(200).json(user);
     } else {
       res.status(401).json(e401);

@@ -10,7 +10,7 @@ const { e400, e401, e404 } = require("../api");
 router.get("/get?user=:id", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let all = fs.readJsonSync("../../../data/users.json");
+      let all = fs.readJsonSync("data/users.json");
       if (all[req.params.id] != undefined) {
         res.status(200).json(all[req.params.id]);
       } else {

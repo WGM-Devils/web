@@ -10,15 +10,15 @@ const { e204, e400, e401, e404 } = require("../../api");
 router.delete("/delete?comment=:id", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let users = fs.readJsonSync("../../../../data/users.json");
-      let posts = fs.readJsonSync("../../../../data/posts.json");
-      let comments = fs.readJsonSync("../../../../data/comments.json");
+      let users = fs.readJsonSync("data/users.json");
+      let posts = fs.readJsonSync("data/posts.json");
+      let comments = fs.readJsonSync("data/comments.json");
       if (comments[req.params.id] != undefined) {
         if (posts[comments[req.params.id].post] != undefined) {
           if (users[comments[req.id.post].author] != undefined) {
             let comment = comments[req.params.id];
             delete comments[req.params.id];
-            fs.writeJsonSync("../../../../data/comments.json", comments, {
+            fs.writeJsonSync("data/comments.json", comments, {
               spaces: 4,
             });
             let user = users[comment.author];
@@ -28,7 +28,7 @@ router.delete("/delete?comment=:id", (req, res) => {
               post.comments.ids.indexOf(comment.post)
             );
             posts[comment.post] = post;
-            fs.writeJsonSync("../../../../data/posts.json", posts, {
+            fs.writeJsonSync("data/posts.json", posts, {
               spaces: 4,
             });
             user.comments.counter = parseInt(user.comments.counter) - 1;
@@ -36,7 +36,7 @@ router.delete("/delete?comment=:id", (req, res) => {
               user.comments.ids.indexOf(comment.author)
             );
             users[comment.author] = user;
-            fs.writeJsonSync("../../../../data/users.json", users, {
+            fs.writeJsonSync("data/users.json", users, {
               spaces: 4,
             });
             res.status(204).json(e204);

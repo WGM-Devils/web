@@ -10,7 +10,7 @@ const { e400, e401, e404 } = require("../../api");
 router.patch("/edit?comment=:id", (req, res) => {
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let comments = fs.readJsonSync("../../../../data/comments.json");
+      let comments = fs.readJsonSync("data/comments.json");
       if (posts[req.params.id] != undefined) {
         let comment = req.body;
         comment.lastUpdated = new Date().toLocaleString("de-DE", {
