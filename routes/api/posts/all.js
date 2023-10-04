@@ -12,7 +12,7 @@ router.get("/all", (req, res) => {
   console.log(path);
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
-      let posts = fs.readJsonSync("../../../data/posts.json");
+      let posts = fs.readJsonSync("data/posts.json");
       res.status(200).json(posts);
     } else {
       res.status(401).json(e401);
