@@ -9,7 +9,6 @@ const path = require("path");
 // Code
 
 router.get("/all", (req, res) => {
-  console.log(path);
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let posts = fs.readJsonSync("data/posts.json");
