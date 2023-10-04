@@ -4,10 +4,12 @@ const router = require("express").Router();
 const env = require("dotenv").config();
 const fs = require("fs-extra");
 const { e400, e401 } = require("../api");
+const path = require("path");
 
 // Code
 
 router.get("/all", (req, res) => {
+  console.log(path.__dirname);
   if (req.headers["authorization"] !== "") {
     if (req.headers["authorization"] === process.env.KEY) {
       let posts = fs.readJsonSync("../../../data/posts.json");
